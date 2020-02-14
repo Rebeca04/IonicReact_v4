@@ -23,26 +23,28 @@ a file by the name of capacitor.config.json will be created. This file can be us
 Since we did not build our project (npm run build) so far it lacks a build directory that Capacitor was looking for (hence the error). No need to panic, you can fix it by simply following the steps here:
 
 # 1.Update your *capacitor.config.json* to the following (simply add the part that is in bold):
-line 6
+line 6: **"webDir": "public", **
 ```
 {
   "appId": "io.ionic.starter",
   "appName": "appIonicReact",
   "bundledWebRuntime": false,
   "npmClient": "npm",
-  **"webDir": "public", **
+  "webDir": "public",
   "cordova": {}
 }
 ```
 
 # 2. Update your scripts field in *package.json* so it looks like this (simply add the part that is in bold):
+
+    **"ionic:build": "npm run build && ionic capacitor copy android"**
 ```
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"**,**
-    **"ionic:build": "npm run build && ionic capacitor copy android"**
+    "eject": "react-scripts eject",
+    "ionic:build": "npm run build && ionic capacitor copy android"
   },
   ```
 
@@ -72,3 +74,5 @@ Now, run
 ```
 ionic build
 ```
+
+# END
